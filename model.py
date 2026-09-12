@@ -411,8 +411,11 @@ def normalize_counts_to_probs(n_matrix):
     # TODO: divide each row of n_matrix by its row sum to produce probabilities
     return n_matrix*row_sums_of_counts(n_matrix)**-1
 
-# Step 51 - sample_next_token (not yet solved)
-# TODO: implement
+# Step 51 - sample_next_token
+def sample_next_token(p_matrix, current_id, rng):
+    """Sample the next token id from P[current_id] using rng."""
+    # TODO: draw one categorical sample from the row of p_matrix at current_id
+    return int(rng.choice(range(len(p_matrix[0])),p= p_matrix[current_id]))
 
 # Step 52 - generate_sequence (not yet solved)
 # TODO: implement
