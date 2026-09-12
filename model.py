@@ -417,8 +417,15 @@ def sample_next_token(p_matrix, current_id, rng):
     # TODO: draw one categorical sample from the row of p_matrix at current_id
     return int(rng.choice(range(len(p_matrix[0])),p= p_matrix[current_id]))
 
-# Step 52 - generate_sequence (not yet solved)
-# TODO: implement
+# Step 52 - generate_sequence
+def generate_sequence(p_matrix, start_id, length, rng):
+    """Autoregressively sample `length` token ids from a bigram matrix, starting with `start_id`."""
+    # TODO: build a length-L int array starting at start_id, then sample each next id from p_matrix
+    sequence = []
+    sequence.append(start_id)
+    for t in range(1,length):
+        sequence.append(sample_next_token(p_matrix,sequence[t-1],rng))
+    return np.array(sequence)
 
 # Step 53 - decode_generated_sequence (not yet solved)
 # TODO: implement
